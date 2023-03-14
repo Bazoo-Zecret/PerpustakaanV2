@@ -39,7 +39,7 @@ if(@$_POST['simpan_siswa']) {
     $nis = $_POST['nis'];
     $nama = $_POST['nama_siswa'];
     $kelas = $_POST['kelas'];
-    $gambar = $_FILES['photo']['name'];
+    $gambar = $_FILES['gambar']['name'];
     $perpus->simpan_siswa($nisn,$nama,$kelas,$gambar);
 }
 //Hapus Siswa
@@ -53,7 +53,7 @@ if(@$_POST['ubah_siswa']) {
     $nis = $_POST['nis'];
     $nama = $_POST['nama'];
     $kelas = $_POST['kelas'];
-    $gambar = $_FILES['photo']['name'];
+    $gambar = $_FILES['gambar']['name'];
 
     $perpus->ubah_siswa($id,$nis,$nama,$kelas,$gambar);
 }
@@ -84,16 +84,16 @@ if(@$_POST['ubah_buku']) {
 }
 //peminjaman
 if (@$_POST['simpan_pinjam']) {
-    $no_peminjaman = $_POST['idd'] . "-" . date('Y-m-d');
-    $siswa = $_POST['idd'];
+    $no_peminjaman = $_POST['id'] . "-" . date('Y-m-d');
+    $siswa = $_POST['id'];
     $buku = $_POST['buku'];
     $tgl_pinjam = date('Y-m-d');
     $tgl_kembali = $_POST['tgl_kembali'];
     $perpus->proses_simpan_peminjaman($no_peminjaman, $siswa, $buku, $tgl_pinjam, $tgl_kembali);
 }
 
-if (@$_POST['cari_nis']) {
+if (@$_POST['nis']) {
     $nis = $_POST['nis'];
-    $nama = $_POST['nama'];
+    $siswa = $_POST['nama'];
     $perpus->cari_nis($nis);
 }

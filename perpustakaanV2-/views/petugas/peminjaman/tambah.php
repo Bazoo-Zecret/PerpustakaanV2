@@ -10,7 +10,7 @@ $koneksi = mysqli_connect('localhost', 'root', '', 'perpustakaan_v2');
     <div class="form-group">
         <label for="">NIS</label>
         <input type="text" name="nis" autofocus class="form-control">
-        <input type="submit" name="cari_nis" value="Cari" class="btn btn-primary mt-1 mb-1">
+        <input type="submit" name="nis" value="Cari" class="btn btn-primary mt-1 mb-1">
     </div>
 </form>
 
@@ -21,8 +21,8 @@ $koneksi = mysqli_connect('localhost', 'root', '', 'perpustakaan_v2');
         $query_nama = mysqli_query($koneksi, "SELECT * FROM siswa WHERE nis='$nis' ");
         $n = mysqli_fetch_array($query_nama);
         ?>
-        <input type="hidden" name="idd" value="<?= $n['nis']; ?>">
-        <input type="text" name="siswa" value="<?= @$n['nama_siswa']; ?>" class="form-control">
+        <input type="hidden" name="id" value="<?= $n['nis']; ?>">
+        <input type="text" name="siswa" value="<?= @$n['nama']; ?>" class="form-control">
         <?php
         ?>
     </div>
